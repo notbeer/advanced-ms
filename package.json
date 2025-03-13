@@ -1,0 +1,52 @@
+{
+  "name": "advanced-ms",
+  "version": "1.0.0",
+  "description": "An advanced millisecond conversion package",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "keywords": [
+    "Milliseconds",
+    "Duration",
+    "Time Conversion",
+    "Date Utilities",
+    "Duration Parser",
+    "Time Manipulation",
+    "Time Formatting",
+    "Time Calculations",
+    "MS to Duration",
+    "Leap Year Handling",
+    "Compact Duration",
+    "Flexible Time",
+    "Human-readable Time",
+    "Date Arithmetic",
+    "Advanced Time Conversion",
+    "Milliseconds to Time",
+    "Time Interval",
+    "Duration Formatter",
+    "Time Unit Parsing",
+    "Timezone Conversion",
+    "JavaScript Time Utilities",
+    "Time Period Calculation",
+    "Time Units",
+    "Date Time API",
+    "Time Aggregation"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --env node"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.10",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6",
+    "typescript": "^5.8.2"
+  }
+}
