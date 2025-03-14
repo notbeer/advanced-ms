@@ -7,6 +7,7 @@ declare module 'advanced-ms' {
      * @param {string | number} value - The input value to convert. Can be a string (e.g., `"2h 30m"`) or a number (milliseconds).
      * @param {Option} option - An optional object containing various configuration options:
      *   - `isLeapYear` (optional) - A boolean to specify whether to use a leap year in calculations (default is false).
+     *   - *Below options can only be used during the conversion of milliseconds to formatted time*
      *   - `returnAllUnits` (optional) - A boolean to specify whether to include all units, even those with a value of 0 (default is false).
      *   - `compactDuration` (optional) - A boolean to specify whether to return the duration in a compact format (e.g., `2h 30m` instead of `2 hours, 30 minutes`) (default is false).
      *   - `avoidUnits` (optional) - An array of time formats to exclude from the result (e.g., `['y', 'mo']`).
