@@ -1,6 +1,6 @@
 {
   "name": "advanced-ms",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An advanced millisecond conversion package",
   "type": "module",
   "main": "./dist/index.cjs",
