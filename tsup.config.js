@@ -6,5 +6,8 @@ export default defineConfig({
     dts: true,
     splitting: false,
     sourcemap: true,
-    clean: true
+    clean: true,
+    outExtension({ format }) {
+        return format === "esm" ? { js: ".mjs" } : { js: ".cjs" };
+    }
 });
