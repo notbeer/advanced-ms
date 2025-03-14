@@ -79,6 +79,10 @@ describe('AdvancedMS Function', () => {
         expect(AdvancedMS('1.5h')).toBe(5400000);
     });
 
+    test('should return all durations on returnAllUnits', () => {
+        expect(AdvancedMS(90061000, { returnAllUnits: true })).toBe('0 year, 0 month, 0 week, 1 day, 1 hour, 1 minute, 1 second, 0 millisecond');
+    });
+
     test('should return a formatted duration when given a number', () => {
         expect(AdvancedMS(3600000)).toBe('1 hour');
         expect(AdvancedMS(31536000000)).toBe('1 year');
