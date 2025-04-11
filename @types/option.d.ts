@@ -15,10 +15,10 @@ export interface Option {
     returnAllUnits?: boolean;
     
     /**
-     * Whether to return the duration in a compact format (e.g., `2h 30m` instead of `2 hours, 30 minutes`).
+     * Whether to return the units in a compact format (e.g., `2h 30m` instead of `2 hours, 30 minutes`).
      * Default is false.
      */
-    compactDuration?: boolean;
+    compactUnits?: boolean;
     
     /**
      * A list of unit short names (e.g., `'y'`, `'mo'`, `'w'`) to exclude from the result.

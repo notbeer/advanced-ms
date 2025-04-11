@@ -10,7 +10,7 @@ describe('toDuration Function', () => {
     });
 
     test('should return compact duration when compactDuration is true', () => {
-        expect(toDuration(90061000, { compactDuration: true })).toBe('1d 1h 1m 1s');
+        expect(toDuration(90061000, { compactUnits: true })).toBe('1d 1h 1m 1s');
     });
 
     test('should return multiple units when returnAllUnits is true, even if time is "0"', () => {
@@ -31,8 +31,8 @@ describe('toDuration Function', () => {
     });
 
     test('should handle leap years correctly', () => {
-        expect(toDuration(36892800000, { isLeapYear: true, compactDuration: true })).toBe('1y 2mo')
-        expect(toDuration(36792000000, { compactDuration: true })).toBe('1y 2mo')
+        expect(toDuration(36892800000, { isLeapYear: true, compactUnits: true })).toBe('1y 2mo')
+        expect(toDuration(36792000000, { compactUnits: true })).toBe('1y 2mo')
         
         expect(toDuration(31536000000, { isLeapYear: false })).toBe('1 year');
         expect(toDuration(31622400000, { isLeapYear: true })).toBe('1 year');
@@ -59,8 +59,8 @@ describe('toDuration Function', () => {
         expect(toDuration(60000)).toBe('1 minute');
         expect(toDuration(120000)).toBe('2 minutes');
 
-        expect(toDuration(60000, { compactDuration: true })).toBe('1m');
-        expect(toDuration(120000, { compactDuration: true })).toBe('2m');
+        expect(toDuration(60000, { compactUnits: true })).toBe('1m');
+        expect(toDuration(120000, { compactUnits: true })).toBe('2m');
     });
 
     test('should not round up values incorrectly', () => {

@@ -16,7 +16,7 @@ declare module 'advanced-ms' {
      *                              or a formatted string if the input is a number (milliseconds).
      * @throws {Error} If the input is neither a valid number nor a properly formatted duration string.
      */
-    export function AdvancedMS(value: string | number, option?: Option): string | number;
+    function AdvancedMS(value: string | number, option?: Option): string | number;
 };
 
 export { CompactUnit, Option };

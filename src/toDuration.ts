@@ -7,7 +7,7 @@ import { Option } from "@types";
  * @param option - An optional object containing various configuration options:
  *   - `isLeapYear` (optional) - A boolean to specify whether to use a leap year in calculations (default is false).
  *   - `returnAllUnits` (optional) - A boolean to specify whether to include all units, even those with a value of 0 (default is false).
- *   - `compactDuration` (optional) - A boolean to specify whether to return the duration in a compact format (e.g., `2h 30m` instead of `2 hours, 30 minutes`) (default is false).
+ *   - `compactUnits` (optional) - A boolean to specify whether to return the units in a compact format (e.g., `2h 30m` instead of `2 hours, 30 minutes`) (default is false).
  *   - `avoidUnits` (optional) - An array of time formats to exclude from the result (e.g., `['y', 'mo']`).
  *   - `staticUnits` (optional) - A boolean to specify whether to use static units. Can only be used with option `avoidUnits`. If true, it will return formatted time depending on what units were avoided. (default is false).
  * @returns A string representing the duration formatted according to the options provided.
@@ -23,7 +23,7 @@ export function toDuration(
     const {
         isLeapYear,
         returnAllUnits,
-        compactDuration,
+        compactUnits,
         avoidUnits,
         staticUnits
     } = option;
@@ -51,9 +51,9 @@ export function toDuration(
             if(avoidUnits && avoidUnits.includes(unit.short)) continue;
             if(!staticUnits) remainingMs %= unit.ms;
 
-            result.push(`${Math.sign(value) === -1 ? '-' : ''}${compactDuration ? `${count}${unit.short}` : `${count} ${unit.long}${count > 1 ? 's' : ''}`}`)
+            result.push(`${Math.sign(value) === -1 ? '-' : ''}${compactUnits ? `${count}${unit.short}` : `${count} ${unit.long}${count > 1 ? 's' : ''}`}`)
         };
     };
     
-    return result.length > 0 ? result.join(compactDuration ? ' ' : ', ') : `0`;
+    return result.length > 0 ? result.join(compactUnits ? ' ' : ', ') : '0';
 };

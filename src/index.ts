@@ -11,7 +11,7 @@ import {
 interface FlexOptions {
     isLeapYear?: boolean,
     returnAllUnits?: boolean,
-    compactDuration?: boolean
+    compactUnits?: boolean
 }
 
 function isError(error: unknown): error is Error {
@@ -24,7 +24,6 @@ function AdvancedMS(
     value: number,
     option: FlexOptions & { avoidUnits: Array<CompactUnit>; staticUnits?: boolean }
 ): string;
-
 function AdvancedMS(
     value: string | number,
     option?: Option

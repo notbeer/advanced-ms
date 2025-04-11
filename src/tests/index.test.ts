@@ -95,7 +95,7 @@ describe('AdvancedMS Function', () => {
     });
 
     test('should handle compactDuration correctly', () => {
-        expect(AdvancedMS(90061000, { compactDuration: true })).toBe('1d 1h 1m 1s');
+        expect(AdvancedMS(90061000, { compactUnits: true })).toBe('1d 1h 1m 1s');
     });
     
     test('should return "0" when all units are avoided', () => {
