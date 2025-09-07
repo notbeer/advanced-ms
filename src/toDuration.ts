@@ -46,12 +46,19 @@ export function toDuration(
     for(const unit of timeUnits) {
         const count = Math.floor(remainingMs / unit.ms);
 
-        if(returnAllUnits || count > 0) {
-            if(staticUnits) remainingMs %= unit.ms;
-            if(avoidUnits && avoidUnits.includes(unit.short)) continue;
-            if(!staticUnits) remainingMs %= unit.ms;
+        if(avoidUnits?.includes(unit.short)) {
+            if(!staticUnits) continue;
+            else {
+                remainingMs %= unit.ms; 
+                continue;
+            };
+        };
 
-            result.push(`${Math.sign(value) === -1 ? '-' : ''}${compactUnits ? `${count}${unit.short}` : `${count} ${unit.long}${count > 1 ? 's' : ''}`}`)
+        if(count > 0 || returnAllUnits) {
+            result.push(
+                `${Math.sign(value) === -1 ? '-' : ''}${compactUnits ? `${count}${unit.short}` : `${count} ${unit.long}${count > 1 ? 's' : ''}`}`
+            );
+            remainingMs %= unit.ms;
         };
     };
     
