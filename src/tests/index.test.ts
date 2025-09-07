@@ -92,7 +92,7 @@ describe('AdvancedMS Function', () => {
         expect(AdvancedMS(90061000)).toBe('1 day, 1 hour, 1 minute, 1 second');
         expect(AdvancedMS(90061000, { avoidUnits: ['h', 'm'] })).toBe('1 day, 3661 seconds');
         expect(AdvancedMS(90061000, { avoidUnits: ["y", "mo", "w", "d", "h", "m", "s", "ms"] })).toBe('0')
-        expect(AdvancedMS(90061000, { avoidUnits: ['h', 'm'], staticUnits: true })).toBe('1 day, 1 seconds');
+        expect(AdvancedMS(90061000, { avoidUnits: ['h', 'm'], staticUnits: true })).toBe('1 day, 1 second');
     });
 
     test('should handle compactDuration correctly', () => {
