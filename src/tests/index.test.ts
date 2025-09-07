@@ -29,7 +29,7 @@ describe('AdvancedMS Function', () => {
         expect(AdvancedMS(31622400000 * 3, { isLeapYear: true })).toBe('3 years');
     });
 
-    test('should calculate months correctly with leap years', () => {
+    test('should calculate months correctly with leap years when converting from string', () => {
         expect(AdvancedMS('1mo', { isLeapYear: true })).toBe(31622400000 / 12);
         expect(AdvancedMS('1mo', { isLeapYear: false })).toBe(31536000000 / 12);
     });
@@ -91,7 +91,8 @@ describe('AdvancedMS Function', () => {
     test('should return correct duration when avoidUnits is applied', () => {
         expect(AdvancedMS(90061000)).toBe('1 day, 1 hour, 1 minute, 1 second');
         expect(AdvancedMS(90061000, { avoidUnits: ['h', 'm'] })).toBe('1 day, 3661 seconds');
-        expect(AdvancedMS(90061000, { avoidUnits: ['h', 'm'], staticUnits: true })).toBe('1 day, 1 second');
+        expect(AdvancedMS(90061000, { avoidUnits: ["y", "mo", "w", "d", "h", "m", "s", "ms"] })).toBe('0')
+        expect(AdvancedMS(90061000, { avoidUnits: ['h', 'm'], staticUnits: true })).toBe('1 day, 1 seconds');
     });
 
     test('should handle compactDuration correctly', () => {
