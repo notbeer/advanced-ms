@@ -11,25 +11,45 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      # Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
+      # Setup Node
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
+      # Install dependencies
       - name: Install dependencies
         run: npm ci
 
+      # Show Node & npm versions
+      - name: Node info
+        run: |
+          node -v
+          npm -v
+
+      # Run tests with coverage
       - name: Run tests with coverage
         run: npm run test:coverage
 
-      - name: Check coverage files
-        run: ls -R coverage
+      # Debug: list files and coverage directory
+      - name: List project files
+        run: |
+          echo "Working dir: $(pwd)"
+          ls -R
+          if [ -d coverage ]; then
+            echo "Coverage files:"
+            ls -R coverage
+          else
+            echo "No coverage directory found!"
+          fi
 
+      # Upload coverage to Codecov
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          files: coverage/lcov.info
+          files: ./coverage/lcov.info
           fail_ci_if_error: true
