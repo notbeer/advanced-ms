@@ -1,6 +1,6 @@
 {
   "name": "advanced-ms",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "An advanced millisecond conversion package",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -31,7 +31,8 @@
     "url": "git+https://github.com/notbeer/advanced-ms.git"
   },
   "author": "notbeer",
-  "license": "ISC",
+  "homepage": "https://github.com/notbeer/advanced-ms#readme",
+  "license": "GPL-3.0",
   "keywords": [
     "Milliseconds",
     "Duration",

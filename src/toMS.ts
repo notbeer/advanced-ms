@@ -1,3 +1,22 @@
+import { getYearMs } from "./constants";
+
+/**
+ * Options for controlling how `AdvancedMS` converts to milliseconds.
+ */
+export interface ToMSOption {
+    /**
+     * Treats the year as a leap year (366 days) instead of a normal year (365 days).
+     * This only matters when converting large values (months or years).
+     *
+     * - Default: `false`
+     *
+     * @example
+     * AdvancedMS("1y 2mo", { isLeapYear: false }) // 36792000000
+     * AdvancedMS("1y 2mo", { isLeapYear: true }); // 36892800000
+     */
+    isLeapYear?: boolean;
+}
+
 /**
  * Convert Durations to milliseconds
  * @param {string} value The string time value
@@ -9,13 +28,15 @@
  */
 export function toMS(
     value: string,
-    option: {
-        isLeapYear?: boolean
-    } = {}
+    option: ToMSOption = {}
 ): number {
+    const {
+        isLeapYear
+    } = option;
+
     const number = Number(value.replace(/[^-.0-9]+/g, '')), noSpaceValue = value.replace(/\s+/g, '');
 
-    const yearMs = option.isLeapYear ? 31622400000 : 31536000000;
+    const yearMs = getYearMs(isLeapYear);
 
     if(/\d+(?=y)/i.test(noSpaceValue)) return number * yearMs;
     else if(/\d+(?=ms|milliseconds?)/i.test(noSpaceValue)) return number;
