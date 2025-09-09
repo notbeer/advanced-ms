@@ -1,6 +1,6 @@
 {
   "name": "advanced-ms",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "An advanced millisecond conversion package",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test": "jest --env node",
+    "test": "tsc -p tsconfig.test.json --noEmit && jest",
     "test:coverage": "jest --coverage"
   },
   "jest": {

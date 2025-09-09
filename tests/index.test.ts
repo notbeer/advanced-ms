@@ -1,3 +1,5 @@
+/// <reference types="jest" />
+
 import AdvancedMS from '../src/index';
 
 describe('AdvancedMS Function', () => {
